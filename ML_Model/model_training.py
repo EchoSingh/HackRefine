@@ -1,10 +1,11 @@
 # -*- coding: utf-8 -*-
 from keras.models import Sequential
-#initialize nn
 
+# initialize cnn
 from keras.layers import Conv2D
 from keras.layers import MaxPooling2D
 from keras.layers import Flatten
+
 #convert pooling features space to large feature vector for fully
 #connected layer 
 from keras.preprocessing.image import ImageDataGenerator
@@ -13,7 +14,7 @@ from keras.layers import Dense
 from keras.layers import BatchNormalization
 from keras.layers import Dropout
 
-#basic cnn
+# CNN ARCHITECTURE
 model = Sequential()
 model.add(Conv2D(32, kernel_size = (3, 3), activation='relu', input_shape=(128,128, 3)))
 model.add(MaxPooling2D(pool_size=(2,2)))
@@ -36,14 +37,12 @@ model.add(Dense(128, activation='relu'))
 model.add(Dropout(0.3))
 model.add(Dense(25, activation = 'softmax'))
 
+# ADAM optimizer
 model.compile(optimizer = 'adam', loss = 'categorical_crossentropy', metrics = ['accuracy'])
 
 
 
-train_datagen = ImageDataGenerator(rescale = None,
-                                   shear_range = 0.2,
-                                   zoom_range = 0.2,
-                                   horizontal_flip = True)
+train_datagen = ImageDataGenerator(rescale = None, shear_range = 0.2, zoom_range = 0.2, horizontal_flip = True)
 
 test_datagen = ImageDataGenerator(rescale = 1./255)
 
