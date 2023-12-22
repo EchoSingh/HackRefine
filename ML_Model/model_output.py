@@ -1,7 +1,9 @@
+import os
 import numpy as np
 from keras.preprocessing import image
 from keras.models import model_from_json
 
+# loads model
 def load_model():
     # Load the model architecture from the JSON file
     json_file = open('model.json', 'r')
@@ -43,18 +45,30 @@ def predict_disease(model, image_path):
     
     return predicted_class
 
+folder_path = "test set"
+def predict_images_in_folder(model, folder_path):
+    try:
+        # Iterate over all files in the folder
+        for filename in os.listdir(folder_path):
+            if filename.lower().endswith(('.png', '.jpg', '.jpeg')):
+                # Construct the full path to the image
+                image_path = os.path.join(folder_path, filename)
+
+                # Make a prediction for each image
+                result = predict_disease(model, image_path)
+
+                # Display the result for each image
+                print(f"Image: {filename}, Predicted disease: {result}")
+
+    except Exception as e:
+        print("Error: ", str(e))
+
 if __name__ == "__main__":
     # Load the pre-trained model
     model = load_model()
     
-    # Take input image address from the user
-    image_address = input("Enter the path to the input image: ")
+    # Take input folder path from the user
+    folder_path = input("Enter the path to the folder containing images: ")
     
-    try:
-        # Make a prediction
-        result = predict_disease(model, image_address)
-        
-        # Display the result
-        print("Predicted disease: ", result)
-    except Exception as e:
-        print("Error: ", str(e))
+    # Make predictions for all images in the folder
+    predict_images_in_folder(model, folder_path)
