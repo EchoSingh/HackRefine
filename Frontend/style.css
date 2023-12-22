@@ -580,7 +580,7 @@ img {
   .single-hero-post .hero-slides-content {
     position: relative;
     z-index: 1;
-    margin-top: 132px; }
+    margin-top: 10px; }
     @media only screen and (max-width: 767px) {
       .single-hero-post .hero-slides-content {
         margin-top: 112px; } }
