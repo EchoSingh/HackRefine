@@ -2,7 +2,7 @@
 
 ## About
 
-This project takes images of plants from users and uses machine learning to identify the plant disease and suggest a cure for it. It's like having a personal plant doctor who can diagnose your plants with a single snapshot! So go ahead, let your plants strike a pose and watch the magic happen. Just make sure they don't get camera shy! 📸🌿💫
+This project takes images of plants from users and uses machine learning to identify the plant disease and suggest a cure for it. It's like having a personal plant doctor who can diagnose your plants with a single snapshot! So go ahead, let your plants strike a pose and watch the magic happen. Just make sure they don't get camera shy! 📸🌿
 
 ## How to run
 
