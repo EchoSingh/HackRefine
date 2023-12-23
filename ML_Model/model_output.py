@@ -46,7 +46,6 @@ def predict_disease(model, image_path):
 def get_image_path():
     # Take input from the user for the image path
     image_path = input("Enter the path to the input image: ")
-
     return image_path
 
 if __name__ == "__main__":
